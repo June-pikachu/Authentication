@@ -3,3 +3,14 @@
     {{ form.as_p }}
     <button type="submit">Login</button>
 </form>
+
+<!-- socialaccount/login.html -->
+{% load socialaccount %}
+
+<div>Login</div>
+<div>
+    {% providers_media_js %}
+    <div><a href="{% provider_login_url 'google' %}">Login with Google</a></div>
+    <div><a href="{% provider_login_url 'facebook' %}">Login with Facebook</a></div>
+    <!-- Add more providers as needed -->
+</div>
