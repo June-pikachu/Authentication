@@ -19,19 +19,6 @@ def signup_view(request):
         form = UserCreationForm()
     return render(request, 'registration/signup.html', {'form': form})
 
-def login_view(request):
-    if request.method == 'POST':
-        form = AuthenticationForm(request, request.POST)
-        if form.is_valid():
-            user = form.get_user()
-            login(request, user)
-            # Redirect to a success page or home page
-            return redirect('home')
-    else:
-        form = AuthenticationForm()
-    return render(request, 'registration/login.html', {'form': form})
-
-
 class SecureAPIView(APIView):
     permission_classes = [IsAuthenticated]
 
